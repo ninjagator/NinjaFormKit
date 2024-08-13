@@ -4,13 +4,13 @@ Ninja Form Kit is a SvelteKit-based form library designed to simplify form creat
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Validation](#validation)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
+- [Ninja Form Kit](#ninja-form-kit)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [FormField Options](#formfield-options)
+  - [Validation](#validation)
+    - [Validation Options](#validation-options)
 
 ## Installation
 
@@ -97,4 +97,34 @@ Each field in the `fields` object is a `FormField` with the following options:
 | `disabled`      | `boolean`                                                            | Whether the form field is disabled. Optional.                                                 |
 | `before`        | `string`                                                             | Content to display before the form field. Optional.                                           |
 | `after`         | `string`                                                             | Content to display after the form field. Optional.                                            |
-| `validate`      | `object`                                                             | Validation rules for the form field. Optional.                                                |
+| `validate`      | `object`                                                             | Validation rules for the form field. Optional.          
+
+## Validation                                      
+
+Ninja Form Kit has a plethra of validate options
+
+### Validation Options
+
+The `validate` object allows you to specify validation rules for the form field. Below is a table explaining each option:
+
+| Option            | Type          | Description                                                                                   |
+|-------------------|---------------|-----------------------------------------------------------------------------------------------|
+| `required`        | `boolean`     | Whether the field is required.                                                                |
+| `minLength`       | `number`      | The minimum length of the field value.                                                        |
+| `maxLength`       | `number`      | The maximum length of the field value.                                                        |
+| `min`             | `number`      | The minimum value for numeric fields.                                                         |
+| `max`             | `number`      | The maximum value for numeric fields.                                                         |
+| `isEmail`         | `boolean`     | Whether the field value should be a valid email address.                                      |
+| `isUrl`           | `boolean`     | Whether the field value should be a valid URL.                                                |
+| `isNumber`        | `boolean`     | Whether the field value should be a valid number.                                             |
+| `isInteger`       | `boolean`     | Whether the field value should be a valid integer.                                            |
+| `isFloat`         | `boolean`     | Whether the field value should be a valid float.                                              |
+| `isAlpha`         | `boolean`     | Whether the field value should contain only alphabetic characters.                            |
+| `isAlphanumeric`  | `boolean`     | Whether the field value should contain only alphanumeric characters.                          |
+| `isDate`          | `boolean`     | Whether the field value should be a valid date.                                               |
+| `isTime`          | `boolean`     | Whether the field value should be a valid time.                                               |
+| `isDateTime`      | `boolean`     | Whether the field value should be a valid date-time.                                          |
+| `mimeTypes`       | `Array<string>`| An array of acceptable MIME types for file inputs.                                            |
+| `maxSize`         | `number`      | The maximum file size for file inputs, in bytes.                                              |
+| `matches`         | `string`      | A regex pattern that the field value should match.                                            |
+| `badPasswordCheck`| `boolean`     | Whether to check the field value against a list of common bad passwords.                      |
