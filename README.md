@@ -9,6 +9,7 @@ Elevate your form development with Ninja Form Kit, a powerful TypeScript library
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Quick Start](#quick-start)
+    - [Define the config in loader](#define-the-config-in-loader)
     - [Validate the form with actions](#validate-the-form-with-actions)
     - [Form Config Options](#form-config-options)
     - [FormField Options](#formfield-options)
@@ -34,6 +35,8 @@ yarn add ninjaformkit
 ## Quick Start
 
 To configure your form, define a formConfig object in your `+page.server.ts` file. This object allows you to specify form properties such as method, action, fields, and validation rules. For optimal type safety, ensure your formConfig adheres to the FormConfig interface. Important: Define `formConfig` outside the load function to guarantee accessibility within actions.
+
+### Define the config in loader
 
 ```ts
 
