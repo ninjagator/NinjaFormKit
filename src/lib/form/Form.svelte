@@ -8,6 +8,7 @@
 	import Checkbox from './inputs/Checkbox.svelte';
 	import Radio from './inputs/Radio.svelte';
 	import Select from './inputs/Select.svelte';
+	import Toggle from './inputs/Toggle.svelte';
 
 	// Define the submitting variable
 	let submitting = false;
@@ -98,6 +99,8 @@
 					<Submit field={config.fields[field]} key={field} />
 				{:else if config.fields[field].type === 'checkbox'}
 					<Checkbox field={config.fields[field]} key={field} error={errors[field]} />
+				{:else if config.fields[field].type === 'toggle'}
+					<Toggle field={config.fields[field]} key={field} error={errors[field]} />
 				{:else if config.fields[field].type === 'radio'}
 					<Radio field={config.fields[field]} key={field} error={errors[field]} />
 				{:else if config.fields[field].type === 'select'}

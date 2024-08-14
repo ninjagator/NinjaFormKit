@@ -16,7 +16,7 @@ export default {
 					placeholder: '#a0aec0',
 					placeholderDark: '#a0aec0',
 					border: '#e2e8f0',
-					borderDark: '#2d3748',
+					borderDark: '#e2e8f0',
 					error: '#e53e3e',
 					errorDark: '#e53e3e',
 					outline: '#0073aa',

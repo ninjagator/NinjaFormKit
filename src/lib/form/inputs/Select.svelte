@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { type FormField } from '$lib/form/form.config.js';
+	import Icon from '@iconify/svelte';
 	export let field: FormField;
 	export let key: string;
 	export let error: string | undefined = undefined;
@@ -15,20 +16,28 @@
 	<label
 		for={key}
 		class="text-sm font-semibold text-ninjaFormKit-text dark:text-ninjaFormKit-textDark mb-1"
-		>{field.label}{#if field.validate !== undefined}<span class="text-red-500">*</span>{/if}</label
+		>{field.label}
+		{#if field.validate !== undefined}<span class="text-red-500">*</span>{/if}</label
 	>
-	<select
-		id={key}
-		name={key}
-		class={`border ${error ? 'border-ninjaFormKit-error  dark:border-ninjaFormKit-errorDark' : 'border-ninjaFormKit-border'} rounded-md p-2.5 outline-ninjaFormKit-default w-full bg-ninjaFormKit-inputBg dark:bg-ninjaFormKit-inputBgDark text-ninjaFormKit-text dark:text-ninjaFormKit-textDark`}
-		value={selectedValue}
-		multiple={field.multiple}
-	>
-		<option value="" disabled selected={!selectedValue}>{field.placeholder}</option>
-		{#each field.options || [] as option}
-			<option value={option.value}>{option.label}</option>
-		{/each}
-	</select>
+	<div class="relative">
+		<Icon
+			icon="mingcute:down-line"
+			class="absolute top-3 right-2 w-5 h-5 text-ninjaFormKit-text dark:text-ninjaFormKit-textDark"
+		/>
+		<select
+			id={key}
+			name={key}
+			class={`border ${error ? 'border-ninjaFormKit-error  dark:border-ninjaFormKit-errorDark' : 'border-ninjaFormKit-border'} rounded-md p-2.5 outline-ninjaFormKit-default w-full bg-ninjaFormKit-inputBg dark:bg-ninjaFormKit-inputBgDark text-ninjaFormKit-text dark:text-ninjaFormKit-textDark appearance-none`}
+			value={selectedValue}
+			multiple={field.multiple}
+			disabled={field.disabled}
+		>
+			<option value="" disabled selected={!selectedValue}>{field.placeholder}</option>
+			{#each field.options || [] as option}
+				<option value={option.value}>{option.label}</option>
+			{/each}
+		</select>
+	</div>
 	{#if error}
 		<p id={`${key}-error`} class="text-ninjaFormKit-error dark:text-ninjaFormKit-errorDark text-sm">
 			{error}

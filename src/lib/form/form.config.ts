@@ -17,14 +17,10 @@ export type FormField = {
 		| 'faketoggle'
 		| 'hidden'
 		| 'select'
-		| 'file'
-		| 'html'
-		| 'datetime';
+		| 'file';
 	label: string;
 	defaultValue?: string | number | null;
 	defaultChecked?: boolean;
-	centre?: boolean;
-	center?: boolean;
 	width?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 	variant?: 'password' | 'email' | 'text' | 'color' | 'number';
 	placeholder?: string;

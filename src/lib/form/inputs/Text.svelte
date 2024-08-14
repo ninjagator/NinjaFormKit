@@ -47,11 +47,12 @@
 			disabled={field.disabled}
 		/>
 		{#if field.variant === 'password'}
-			<button on:click={togglePassword} type="button">
-				<Icon
-					icon={passwordReveal ? 'akar-icons:eye-hide' : 'akar-icons:eye-show'}
-					class="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-400 cursor-pointer"
-				/>
+			<button
+				on:click={togglePassword}
+				type="button"
+				class="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-400 cursor-pointer"
+			>
+				<Icon icon={passwordReveal ? 'mdi:eye-off' : 'mdi:eye'} />
 			</button>
 		{/if}
 	</div>

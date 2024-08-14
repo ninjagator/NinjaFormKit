@@ -103,7 +103,12 @@ export async function validateField<T extends FormConfig['fields'][string]>(
 	config: FormConfig
 ) {
 	if (field.validate) {
+		// Check for falsey values
 		if (field.validate.required) {
+			if (value === undefined || value === null) {
+				return `${field.label} is required`;
+			}
+
 			if (typeof value === 'string' && value.trim() === '') {
 				return `${field.label} is required`;
 			}
@@ -115,18 +120,16 @@ export async function validateField<T extends FormConfig['fields'][string]>(
 			if (value instanceof File && value.size === 0) {
 				return `${field.label} is required`;
 			}
-
-			if (value === undefined || value === null) {
-				return `${field.label} is required`;
-			}
 		}
 
+		// Check string length
 		if (field.validate.maxLength) {
 			if (typeof value === 'string' && value.length > field.validate.maxLength) {
 				return `${field.label} is too long. Max length is ${field.validate.maxLength} characters`;
 			}
 		}
 
+		// Check string length
 		if (field.validate.minLength) {
 			if (typeof value === 'string' && value.length < field.validate.minLength) {
 				return `${field.label} is too short. Minimum length is ${field.validate.minLength} characters`;
@@ -139,18 +142,21 @@ export async function validateField<T extends FormConfig['fields'][string]>(
 			}
 		}
 
+		// Check if valid number string and greater than min
 		if (field.validate.min) {
 			if (typeof value === 'string' && parseInt(value) < field.validate.min) {
 				return `${field.label} must be greater than ${field.validate.min}`;
 			}
 		}
 
+		// Check if valid number string and less than max
 		if (field.validate.max) {
-			if (typeof value === 'string' && parseInt(value) > field.validate.max) {
+			if (typeof value === 'string' && parseInt(value) >= field.validate.max) {
 				return `${field.label} must be less than ${field.validate.max}`;
 			}
 		}
 
+		// Check for bad password
 		if (
 			field.variant === 'password' &&
 			typeof value === 'string' &&
@@ -162,6 +168,7 @@ export async function validateField<T extends FormConfig['fields'][string]>(
 			}
 		}
 
+		// Check file size
 		if (field.type === 'file' && value instanceof File) {
 			if (field.validate.maxSize) {
 				if (value.size > field.validate.maxSize) {
@@ -176,15 +183,52 @@ export async function validateField<T extends FormConfig['fields'][string]>(
 			}
 		}
 
+		// Check if value is a number
 		if (field.validate.isNumber) {
 			if (isNaN(Number(value))) {
 				return `${field.label} must be a number`;
 			}
 		}
 
+		// Check matches another fields value
 		if (field.validate.matches) {
 			if (value !== values[field.validate.matches]) {
 				return `${field.label} does not match ${config.fields[field.validate.matches].label}`;
+			}
+		}
+
+		// Check only letters
+		if (field.validate.isAlpha) {
+			if (typeof value === 'string' && /^[A-Za-z]+$/.test(value.trim())) {
+				return `${field.label} must contain only alphabetic characters`;
+			}
+		}
+
+		// Check if string only string or number
+		if (field.validate.isAlphanumeric) {
+			if (typeof value === 'string' && !/^[A-Za-z0-9]+$/.test(value)) {
+				return `${field.label} must contain only letters and numbers`;
+			}
+		}
+
+		// Check if string is a floadt
+		if (field.validate.isFloat) {
+			if (typeof value === 'string' && !/^[+-]?\d+(\.\d+)?$/.test(value)) {
+				return `${field.label} must be a valid float`;
+			}
+		}
+
+		// Check if valid date string
+		if (field.validate.isDate && typeof value === 'string') {
+			if (isNaN(Date.parse(value))) {
+				return `${field.label} must be a valid date`;
+			}
+		}
+
+		// Check if valid time string
+		if (field.validate.isTime) {
+			if (typeof value === 'string' && !/^\d{2}:\d{2}(:\d{2})?$/.test(value)) {
+				return `${field.label} must be a valid time`;
 			}
 		}
 

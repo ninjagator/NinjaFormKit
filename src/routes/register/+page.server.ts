@@ -38,7 +38,6 @@ const formConfig = {
 				{ label: 'Friend', value: 'friend' },
 				{ label: 'Other', value: 'other' }
 			],
-			break: true,
 			validate: {
 				required: true
 			}
@@ -79,7 +78,7 @@ const formConfig = {
 			}
 		},
 		newsletter: {
-			type: 'checkbox',
+			type: 'toggle',
 			label: 'Subscribe to newsletter',
 			defaultChecked: true
 		},
