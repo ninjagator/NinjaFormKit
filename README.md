@@ -13,7 +13,7 @@ Ninja Form Kit is a TypeScript first SvelteKit-based form library designed to si
     - [FormField Options](#formfield-options)
   - [Validation](#validation)
     - [Validation Options](#validation-options)
-  - [Styling](#styling)
+  - [Theming](#theming)
   - [More examples](#more-examples)
     - [Register Form](#register-form)
     - [Login Form](#login-form)
@@ -159,9 +159,9 @@ The `validate` object allows you to specify validation rules for the form field.
 | `matches`         | `string`      | A regex pattern that the field value should match.                                            |
 | `badPasswordCheck`| `boolean`     | Whether to check the field value against a list of common bad passwords. Utilises pwned passwords API.                   |
 
-## Styling
+## Theming
 
-Ninja Form Kit is built with tailwind and is very customisible. Breakpoints are determined with @tailwindcss/container-queries plugin. Add the following options to your tailwind.config.js
+Ninja Form Kit is built with tailwind and is very customisible. Add the following options to your tailwind.config.js and change the colours and breakpoint to suite your theme.
 
 ```js
 
@@ -191,7 +191,14 @@ export default {
 					buttonText: '#ffffff',
 					buttonTextDark: '#ffffff'
 				}
-			}
+			},
+            containers: {
+				NFKBreakpoint: '448px'
+			},
+            spacing: {
+                NFKGapX: '2.75rem',
+                NFKGapY: '3.5rem'
+            }
 		}
 	},
 	plugins: [require('@tailwindcss/container-queries')]

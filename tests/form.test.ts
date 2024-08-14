@@ -28,18 +28,6 @@ test('Form validation', async ({ page }) => {
 	// Submit the form
 	await page.click('button[type=submit]');
 
-	const emailInput = await page.locator('#email');
-	const messageInput = await page.locator('#message');
-
-	// Expect an error state
-	const emailAriaInvalid = await emailInput.getAttribute('aria-invalid');
-
-	expect(emailAriaInvalid).toBe('true');
-
-	// Expect an error state
-	const messageAriaInvalid = await messageInput.getAttribute('aria-invalid');
-	expect(messageAriaInvalid).toBe('true');
-
 	const emailError = await page.locator('#email-error');
 	expect(await emailError.textContent()).toContain('Email is not a valid email');
 

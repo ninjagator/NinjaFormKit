@@ -27,10 +27,10 @@
 		/>
 		<label
 			for={key}
-			class={`flex items w-12 h-6 border border-ninjaFormKit-border dark:border-ninjaFormKit-borderDark bg-ninjaFormKit-inputBg dark:bg-ninjaFormKit-inputBgDark rounded-full p-0.5 duration-200 ease-in-out cursor-pointer`}
+			class={`flex items w-12 h-6 border border-ninjaFormKit-border dark:border-ninjaFormKit-borderDark  ${checked ? ' bg-green-400 dark:bg-green-500' : 'bg-ninjaFormKit-inputBg dark:bg-ninjaFormKit-inputBgDark'} rounded-full p-1 duration-200 ease-in-out cursor-pointer`}
 		>
 			<span
-				class={`bg-ninjaFormKit-default dark:bg-ninjaFormKit-defaultDark w-4 h-4 rounded-full shadow-md relative top-0.75 left-0.5 transform duration-200 ease-in-out${checked ? ' translate-x-6' : ''}`}
+				class={`bg-ninjaFormKit-default dark:bg-ninjaFormKit-defaultDark w-4 h-4 rounded-full shadow-md relative bottom-0.5 transform duration-200 ease-in-out${checked ? ' translate-x-6' : ''}`}
 			></span>
 		</label>
 	</div>

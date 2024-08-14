@@ -24,6 +24,13 @@ export default {
 					buttonText: '#ffffff',
 					buttonTextDark: '#ffffff'
 				}
+			},
+			containers: {
+				NFKBreakpoint: '448px'
+			},
+			spacing: {
+				NFKGapX: '1rem',
+				NFKGapY: '1.5rem'
 			}
 		}
 	},
