@@ -52,7 +52,7 @@
 				type="button"
 				class="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-400 cursor-pointer"
 			>
-				<Icon icon={passwordReveal ? 'mdi:eye-off' : 'mdi:eye'} />
+				<Icon icon={passwordReveal ? 'mdi:eye' : 'mdi:eye-off'} />
 			</button>
 		{/if}
 	</div>
