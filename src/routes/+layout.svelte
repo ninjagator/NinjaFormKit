@@ -16,6 +16,9 @@
 		<li>
 			<a href="/register" class="text-white no-underline p-2 block hover:bg-gray-600">Register</a>
 		</li>
+		<li>
+			<a href="/post" class="text-white no-underline p-2 block hover:bg-gray-600">Add Post</a>
+		</li>
 	</ul>
 </nav>
 <slot />

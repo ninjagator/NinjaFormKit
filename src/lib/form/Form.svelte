@@ -9,6 +9,7 @@
 	import Radio from './inputs/Radio.svelte';
 	import Select from './inputs/Select.svelte';
 	import Toggle from './inputs/Toggle.svelte';
+	import File from './inputs/File.svelte';
 
 	// Define the submitting variable
 	let submitting = false;
@@ -105,6 +106,8 @@
 					<Radio field={config.fields[field]} key={field} error={errors[field]} />
 				{:else if config.fields[field].type === 'select'}
 					<Select field={config.fields[field]} key={field} error={errors[field]} />
+				{:else if config.fields[field].type === 'file'}
+					<File field={config.fields[field]} key={field} error={errors[field]} />
 				{/if}
 			</div>
 			{#if config.fields[field].break && config.fields[field].width}
