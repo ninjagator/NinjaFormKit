@@ -85,7 +85,7 @@ export const actions = {
 		const { errors, hasErrors, values } = await validate(request, formConfig);
 
 		if (hasErrors) {
-                        // Errors will appears under each input that validation
+                        // Errors will appears under each input that validation fails
 			return fail(400, { errors });
 		}
 
