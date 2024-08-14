@@ -120,7 +120,7 @@ Each field in the `fields` object is a `FormField` with the following options:
 
 | Option          | Type                                                                 | Description                                                                                   |
 |-----------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| `type`          | `'text' \| 'textarea' \| 'submit' \| 'checkbox' \| 'radio' \| 'toggle' \| 'hidden' \| 'select' \| 'file' \| 'html' \| 'datetime'` | The type of the form field. Required.                                                         |
+| `type`          | `'text' \| 'textarea' \| 'submit' \| 'checkbox' \| 'radio' \| 'toggle' \| 'select' \| 'file'` | The type of the form field. Required.                                                         |
 | `label`         | `string`                                                             | The label for the form field. Required.                                                       |
 | `defaultValue`  | `string \| number \| null`                                           | The default value for the form field. Optional.                                               |
 | `defaultChecked`| `boolean`                                                            | The default checked state for checkbox, radio, or toggle fields. Optional.                    |
