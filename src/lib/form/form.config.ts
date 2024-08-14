@@ -14,7 +14,6 @@ export type FormField = {
 		| 'checkbox'
 		| 'radio'
 		| 'toggle'
-		| 'faketoggle'
 		| 'hidden'
 		| 'select'
 		| 'file';
