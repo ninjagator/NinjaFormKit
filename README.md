@@ -8,7 +8,7 @@ Elevate your form development with Ninja Form Kit, a powerful TypeScript library
 - [Ninja Form Kit](#ninja-form-kit)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
-  - [Usage](#usage)
+  - [Quick Start](#quick-start)
     - [Validate the form with actions](#validate-the-form-with-actions)
     - [Form Config Options](#form-config-options)
     - [FormField Options](#formfield-options)
@@ -18,6 +18,7 @@ Elevate your form development with Ninja Form Kit, a powerful TypeScript library
   - [More examples](#more-examples)
     - [Register Form](#register-form)
     - [Login Form](#login-form)
+  - [License](#license)
 
 ## Installation
 
@@ -30,9 +31,9 @@ yarn add ninjaformkit
 
 ```
 
-## Usage
+## Quick Start
 
-In your `+page.server.ts`, define a `formConfig` object to configure your form. You can specify options such as the form method, action, fields, and validation rules. To ensure type safety, ensure that your `formConfig` conforms to `FormConfig`. Note: `formConfig` should be defined outside the load function to ensure that the actions have access.
+To configure your form, define a formConfig object in your `+page.server.ts` file. This object allows you to specify form properties such as method, action, fields, and validation rules. For optimal type safety, ensure your formConfig adheres to the FormConfig interface. Important: Define `formConfig` outside the load function to guarantee accessibility within actions.
 
 ```ts
 
@@ -81,6 +82,7 @@ export const actions = {
 		const { errors, hasErrors, values } = await validate(request, formConfig);
 
 		if (hasErrors) {
+            // Errors will appears under each input that validation
 			return fail(400, { errors });
 		}
 
@@ -340,3 +342,7 @@ const formConfig = {
 } satisfies FormConfig;
 
 ```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
