@@ -1,6 +1,7 @@
 # Ninja Form Kit
 
-Ninja Form Kit is a TypeScript first SvelteKit-based form library designed to simplify form creation and validation in your SvelteKit applications.
+Elevate your form development with Ninja Form Kit, a powerful TypeScript library that seamlessly integrates with Tailwind CSS. This robust toolkit unifies UI generation and form validation into a single configuration object, streamlining your workflow. Leverage type-safe components and Tailwind's utility classes to create polished, responsive forms with minimal effort. From basic inputs to complex layouts, Ninja Form Kit empowers developers to build professional, user-friendly forms while maintaining code consistency across projects. Simplify your form creation process and enhance productivity with our comprehensive, TypeScript-first solution.
+
 
 ## Table of Contents
 
