@@ -12,7 +12,8 @@
 	<label
 		for={key}
 		class="text-sm font-semibold text-ninjaFormKit-text dark:text-ninjaFormKit-textDark mb-1"
-		>{field.label}{#if field.validate !== undefined}<span class="text-red-500">*</span>{/if}</label
+		>{field.label}{#if field.validate !== undefined}<span class="text-red-500">*</span>
+		{/if}</label
 	>
 	<textarea
 		id={key}
