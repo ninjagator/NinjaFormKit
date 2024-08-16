@@ -29,7 +29,7 @@
 </script>
 
 <form
-	class="w-full"
+	class="nkf"
 	action={config.action}
 	method={config.method}
 	novalidate
