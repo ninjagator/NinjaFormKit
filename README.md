@@ -192,21 +192,19 @@ Ninja Form Kit offers a wide array of customizable CSS variables. Simply import 
 
 :root {
     --nfk-font: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --nfk-default: #005f8b;
-    --nfk-default-hover: #0a5171;
-    --nfk-text: #000000;
-    --nkf-input-bg: #f3f4f6;
-    --nkf-input-bg-file-hover: #f3f4f6;
-    --nfk-button-text: #ffffff;
-    --nkf-placeholder: #a0aec0;
-    --nfk-border: #e2e8f0;
-    --nkf-error: #e53e3e;
-    --nkf-required: #e84949;
-    --nfk-outline: #0073aa;
-    --nkf-btn-text: #ffffff;
-    --nfk-gap-x: 14px;
-    --nfk-gap-y: 14px;
-    --nfk-breakpoint: 600px;
+    --nfk-default: #005f8b; // Button, radio and toggle colours
+    --nfk-default-hover: #0a5171; // Button, radio and toggle colours hover
+    --nfk-text: #000000; // text colour for labels
+    --nkf-input-bg: #f3f4f6; // Back ground colour for form inputs
+    --nkf-input-bg-file-hover: #f3f4f6; // Hover state for file input
+    --nfk-button-text: #ffffff; // Text colout for buttons and radio
+    --nkf-placeholder: #a0aec0; // Placeholder text colour
+    --nfk-border: #e2e8f0; // Input border
+    --nkf-error: #e53e3e; // Error color for border and error text
+    --nkf-required: #e84949; // Required asterix on inouts with validation rules
+    --nfk-outline: #0073aa; // Outline for inout focused
+    --nfk-gap-x: 14px; // Gap between inputs row
+    --nfk-gap-y: 14px; // Gap between inputs colun
 }
 
 @media (prefers-color-scheme: dark) {
