@@ -25,6 +25,7 @@
 	value={selectedValue}
 	multiple={field.multiple}
 	disabled={field.disabled}
+	aria-invalid={error ? 'true' : 'false'}
 >
 	<option value="" disabled selected={!selectedValue}>{field.placeholder}</option>
 	{#each field.options || [] as option}

@@ -15,6 +15,7 @@
 		placeholder={field.placeholder}
 		checked={field.defaultChecked || false}
 		disabled={field.disabled}
+		aria-invalid={error ? 'true' : 'false'}
 	/>
 	<label for={key} class="nfk-fieldset__field-checkbox__label">{field.label}</label>
 </div>

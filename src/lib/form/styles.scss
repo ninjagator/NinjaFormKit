@@ -180,6 +180,10 @@
             &__input {
                 display: none;
 
+                &[aria-invalid="true"]+.nfk-fieldset__field-checkbox__label::before {
+                    border-color: var(--nkf-error);
+                }
+
                 &:checked+.nfk-fieldset__field-checkbox__label::before {
                     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
                     background-color: var(--nfk-default);
@@ -212,6 +216,10 @@
                     transform: translateX(24px);
                     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
                 }
+
+                &[aria-invalid="true"]+.nfk-fieldset__field-toggle__label {
+                    border-color: var(--nkf-error);
+                }
             }
 
             &__label {
@@ -239,6 +247,10 @@
 
         &-file {
             display: none;
+
+            &[aria-invalid="true"]+.nfk-fieldset__field-dropzone {
+                border-color: var(--nkf-error);
+            }
         }
 
         &-dropzone {

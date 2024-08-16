@@ -22,6 +22,7 @@
 	class="nfk-fieldset__field-file"
 	accept={field.validate?.mimeTypes ? field.validate?.mimeTypes.join(',') : '*'}
 	multiple={field.multiple}
+	aria-invalid={error ? 'true' : 'false'}
 	bind:files
 />
 <label for={key} class={`nfk-fieldset__field-dropzone`}>

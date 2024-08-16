@@ -3,7 +3,6 @@
 	export let field: FormField;
 	export let key: string;
 	export let error: string | undefined = undefined;
-	let checked = field.defaultChecked || false;
 </script>
 
 {#if field.before}
@@ -20,9 +19,9 @@
 		id={key}
 		name={key}
 		class={`nfk-fieldset__field-toggle__input`}
-		bind:checked
 		placeholder={field.placeholder}
 		value={field.defaultValue}
+		aria-invalid={error ? 'true' : 'false'}
 	/>
 	<label for={key} class={`nfk-fieldset__field-toggle__label`}>
 		<span class={`nfk-fieldset__field-toggle__label-switch`}></span>
