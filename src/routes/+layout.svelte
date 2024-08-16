@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import '$lib/form/styles.scss';
 </script>
 
 <nav class="bg-gray-800 p-4">

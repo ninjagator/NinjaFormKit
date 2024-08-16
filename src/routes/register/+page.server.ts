@@ -84,7 +84,7 @@ const formConfig = {
 		},
 		submit: {
 			type: 'submit',
-			label: 'Submit'
+			label: 'Complete Registration'
 		}
 	}
 } satisfies FormConfig;

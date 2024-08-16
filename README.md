@@ -1,6 +1,6 @@
 # Ninja Form Kit
 
-Elevate your form development with Ninja Form Kit, a powerful TypeScript library that seamlessly integrates with Tailwind CSS. This robust toolkit unifies UI generation and form validation into a single configuration object, streamlining your workflow. Leverage type-safe components and Tailwind's utility classes to create polished, responsive forms with minimal effort. From basic inputs to complex layouts, Ninja Form Kit empowers developers to build professional, user-friendly forms while maintaining code consistency across projects. Simplify your form creation process and enhance productivity with our comprehensive, TypeScript-first solution.
+Elevate your form development with Ninja Form Kit, a powerful TypeScript library that seamlessly integrates with your theme. This robust toolkit unifies UI generation and form validation into a single configuration object, streamlining your workflow. Leverage type-safe components to create polished, responsive forms with minimal effort. From basic inputs to complex layouts, Ninja Form Kit empowers developers to build professional, user-friendly forms while maintaining code consistency across projects. Simplify your form creation process and enhance productivity with our comprehensive, TypeScript-first solution.
 
 
 ## Table of Contents
@@ -10,6 +10,7 @@ Elevate your form development with Ninja Form Kit, a powerful TypeScript library
   - [Installation](#installation)
   - [Quick Start](#quick-start)
     - [Define the config in loader](#define-the-config-in-loader)
+    - [Use the Form in your template/component](#use-the-form-in-your-templatecomponent)
     - [Validate the form with actions](#validate-the-form-with-actions)
     - [Form Config Options](#form-config-options)
     - [FormField Options](#formfield-options)
@@ -39,6 +40,8 @@ To configure your form, define a formConfig object in your `+page.server.ts` fil
 ### Define the config in loader
 
 ```ts
+
+import { type FormConfig } from 'ninjaformkit'
 
 const formConfig = {
 	method: 'post',
@@ -76,9 +79,25 @@ export const load: PageServerLoad = async () => {
 
 ```
 
+### Use the Form in your template/component
+
+```svelte
+
+<script lang="ts">
+    import { Form } from 'ninjaformkit'
+    export let data;
+</script>
+
+<Form config={data.formConfig} />
+
+
+```
+
 ### Validate the form with actions
 
 ```ts
+
+import { validate } from 'ninjaformkit'
 
 export const actions = {
 	default: async ({ request }) => {
@@ -167,48 +186,44 @@ The `validate` object allows you to specify validation rules for the form field.
 
 ## Theming
 
-Ninja Form Kit is built with tailwind and is very customisible. Add the following options to your tailwind.config.js and change the colours and breakpoint to suite your theme.
+Ninja Form Kit offers a wide array of customizable CSS variables. Simply import the CSS file into your `+layout.svelte` and tailor the variables to perfectly match your theme.
 
-```js
+```css
 
-/** @type {import('tailwindcss').Config} */
-export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
-	theme: {
-		extend: {
-			colors: {
-				ninjaFormKit: {
-					default: '#0073aa',
-					defaultDark: '#005f8b',
-					hover: '#005f8b',
-					hoverDark: '#004c6e',
-					inputBg: '#f3f4f6',
-					inputBgDark: '#1a202c',
-					text: '#000000',
-					textDark: '#ffffff',
-					placeholder: '#a0aec0',
-					placeholderDark: '#a0aec0',
-					border: '#e2e8f0',
-					borderDark: '#2d3748',
-					error: '#e53e3e',
-					errorDark: '#e53e3e',
-					outline: '#0073aa',
-					outlineDark: '#005f8b',
-					buttonText: '#ffffff',
-					buttonTextDark: '#ffffff'
-				}
-			},
-            containers: {
-				NFKBreakpoint: '448px'
-			},
-            spacing: {
-                NFKGapX: '2.75rem',
-                NFKGapY: '3.5rem'
-            }
-		}
-	},
-	plugins: [require('@tailwindcss/container-queries')]
-};
+:root {
+    --nfk-font: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --nfk-default: #005f8b;
+    --nfk-default-hover: #0a5171;
+    --nfk-text: #000000;
+    --nkf-input-bg: #f3f4f6;
+    --nkf-input-bg-file-hover: #f3f4f6;
+    --nfk-button-text: #ffffff;
+    --nkf-placeholder: #a0aec0;
+    --nfk-border: #e2e8f0;
+    --nkf-error: #e53e3e;
+    --nkf-required: #e84949;
+    --nfk-outline: #0073aa;
+    --nkf-btn-text: #ffffff;
+    --nfk-gap-x: 14px;
+    --nfk-gap-y: 14px;
+    --nfk-breakpoint: 600px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --nfk-default: #005f8b;
+        --nfk-text: #FFFFFF;
+        --nkf-input-bg: #35383c;
+        --nkf-input-bg-file-hover: #595c61;
+        --nfk-button-text: #ffffff;
+        --nkf-placeholder: #dfe3e7;
+        --nfk-border: #e2e8f0;
+        --nkf-error: #e53e3e;
+        --nkf-required: #e84949;
+        --nfk-outline: #0073aa;
+        --nkf-btn-text: #ffffff;
+    }
+}
 
 ```
 

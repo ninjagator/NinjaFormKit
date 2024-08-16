@@ -9,35 +9,31 @@
 	}
 </script>
 
-<div class="flex flex-col">
-	<label
-		for={key}
-		class="text-sm font-semibold text-ninjaFormKit-text dark:text-ninjaFormKit-textDark mb-1"
-		>{field.label}
-		{#if field.validate !== undefined}<span class="text-red-500">*</span>{/if}</label
-	>
-	<div class={`flex gap-2 items-center`}>
-		{#each field.options || [] as option, i}
-			<div class={`flex items-center`}>
-				<input
-					type="radio"
-					id={key + (i + 1)}
-					name={key}
-					class="mr-1 accent-ninjaFormKit-default dark:accent-ninjaFormKit-defaultDark"
-					placeholder={field.placeholder}
-					value={option.value}
-					disabled={field.disabled}
-				/>
-				<label
-					for={key + (i + 1)}
-					class="text-ninjaFormKit-text dark:text-ninjaFormKit-textDark cursor-pointer"
-				>
-					{option.label}
-				</label>
-			</div>
-		{/each}
-	</div>
-	{#if error}
-		<p class="text-ninjaFormKit-error dark:text-ninjaFormKit-errorDark text-sm">{error}</p>
-	{/if}
+<label for={key} class="nfk-fieldset__field-label"
+	>{field.label}
+	{#if field.validate !== undefined}<span class="nfk-fieldset__field-label__required">*</span
+		>{/if}</label
+>
+<div class={`nfk-fieldset__field-radio`}>
+	{#each field.options || [] as option, i}
+		<div class={`flex items-center`}>
+			<input
+				type="radio"
+				id={key + (i + 1)}
+				name={key}
+				class="nfk-fieldset__field-radio__input"
+				placeholder={field.placeholder}
+				value={option.value}
+				disabled={field.disabled}
+			/>
+			<label for={key + (i + 1)} class="nfk-fieldset__field-radio__label">
+				{option.label}
+			</label>
+		</div>
+	{/each}
 </div>
+{#if error}
+	<p id={`${key}-error`} class="text-ninjaFormKit-error dark:text-ninjaFormKit-errorDark text-sm">
+		{error}
+	</p>
+{/if}

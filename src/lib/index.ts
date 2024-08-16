@@ -2,5 +2,6 @@
 import Form from './form/Form.svelte';
 import type { FormConfig } from './form/form.config.js';
 import { validate } from './validate.server.js';
+import nfkStyles from './form/styles.scss';
 
-export { Form, type FormConfig, validate };
+export { Form, type FormConfig, validate, nfkStyles };

@@ -14,42 +14,12 @@
 	// Define the submitting variable
 	let submitting = false;
 
-	// Define the widthMap
-	const widthMap = {
-		1: 'col-span-12 @NFKBreakpoint:col-span-1',
-		2: 'col-span-12 @NFKBreakpoint:col-span-2',
-		3: 'col-span-12 @NFKBreakpoint:col-span-3',
-		4: 'col-span-12 @NFKBreakpoint:col-span-4',
-		5: 'col-span-12 @NFKBreakpoint:col-span-5',
-		6: 'col-span-12 @NFKBreakpoint:col-span-6',
-		7: 'col-span-12 @NFKBreakpoint:col-span-7',
-		8: 'col-span-12 @NFKBreakpoint:col-span-8',
-		9: 'col-span-12 @NFKBreakpoint:col-span-9',
-		10: 'col-span-12 @NFKBreakpoint:col-span-10',
-		11: 'col-span-12 @NFKBreakpoint:col-span-11',
-		12: 'col-span-12'
-	};
-
-	// Define the breakMap offset the input based on the width for width: 1 offset would be 11
-	const breakMap = {
-		1: 'hidden md:block @md:col-span-11',
-		2: 'hidden md:block @md:col-span-10',
-		3: 'hidden md:block @md:col-span-9',
-		4: 'hidden md:block @md:col-span-8',
-		5: 'hidden md:block @md:col-span-7',
-		6: 'hidden md:block @md:col-span-6',
-		7: 'hidden md:block @md:col-span-5',
-		8: 'hidden md:block @md:col-span-4',
-		9: 'hidden md:block @md:col-span-3',
-		10: 'hidden md:block @md:col-span-2',
-		11: 'hidden md:block @md:col-span-1',
-		12: 'hidden'
-	};
-
 	// Define the errors object
 	let errors: { [key in keyof typeof config.fields]: string } = {};
 
 	export let config: FormConfig;
+
+	// Denotes if to run invalidateAll
 	export let runLoader = false;
 	export let data: Record<string, unknown> | undefined = {};
 
@@ -87,10 +57,10 @@
 		};
 	}}
 >
-	<fieldset disabled={submitting} class="grid grid-cols-12 gap-x-NFKGapX gap-y-NFKGapY @container">
+	<fieldset disabled={submitting} class="nfk-fieldset">
 		{#each Object.keys(config.fields) as field, i}
 			<div
-				class={`${config.fields[field].width ? widthMap[config.fields[field].width] : 'col-span-12'}`}
+				class={`${config.fields[field].width ? 'nfk-fieldset__field ' + 'nfk-fieldset__field--' + config.fields[field].width : 'nfk-fieldset__field'}`}
 			>
 				{#if config.fields[field].type === 'text'}
 					<Text field={config.fields[field]} key={field} error={errors[field]} />
@@ -110,9 +80,6 @@
 					<File field={config.fields[field]} key={field} error={errors[field]} />
 				{/if}
 			</div>
-			{#if config.fields[field].break && config.fields[field].width}
-				<span class={breakMap[config.fields[field].width]}></span>
-			{/if}
 		{/each}
 	</fieldset>
 </form>

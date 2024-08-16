@@ -5,30 +5,27 @@
 	export let error: string | undefined = undefined;
 </script>
 
-<div class="flex flex-col">
-	{#if field.before}
-		{@html field.before}
-	{/if}
-	<label
-		for={key}
-		class="text-sm font-semibold text-ninjaFormKit-text dark:text-ninjaFormKit-textDark mb-1"
-		>{field.label}{#if field.validate !== undefined}<span class="text-red-500">*</span>
-		{/if}</label
-	>
-	<textarea
-		id={key}
-		name={key}
-		class={`border ${error ? 'border-ninjaFormKit-error dark:border-ninjaFormKit-errorDark' : 'border-ninjaFormKit-border'} bg-ninjaFormKit-inputBg dark:bg-ninjaFormKit-inputBgDark text-ninjaFormKit-text dark:text-ninjaFormKit-textDark rounded-md p-2 outline-primary-900 w-full min-h-32 ${field.disabled ? 'cursor-not-allowed' : 'cursor-text'}`}
-		aria-invalid={error ? 'true' : 'false'}
-		disabled={field.disabled}
-		placeholder={field.placeholder}>{field.defaultValue ? field.defaultValue : ''}</textarea
-	>
-	{#if error}
-		<p id={`${key}-error`} class="text-ninjaFormKit-error dark:text-ninjaFormKit-errorDark text-sm">
-			{error}
-		</p>
-	{/if}
-	{#if field.after}
-		{@html field.after}
-	{/if}
-</div>
+{#if field.before}
+	{@html field.before}
+{/if}
+<label for={key} class="nfk-fieldset__field-label"
+	>{field.label}
+	{#if field.validate !== undefined}<span class="nfk-fieldset__field-label__required">*</span>
+	{/if}</label
+>
+<textarea
+	id={key}
+	name={key}
+	class={`nfk-fieldset__field-input nfk-fieldset__field-input--textarea${field.disabled ? ' last: nfk-fieldset__field-input--diabled' : ''}`}
+	aria-invalid={error ? 'true' : 'false'}
+	disabled={field.disabled}
+	placeholder={field.placeholder}>{field.defaultValue ? field.defaultValue : ''}</textarea
+>
+{#if error}
+	<p id={`${key}-error`} class="nfk-fieldset__field-error">
+		{error}
+	</p>
+{/if}
+{#if field.after}
+	{@html field.after}
+{/if}

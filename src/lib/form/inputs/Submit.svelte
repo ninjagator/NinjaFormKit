@@ -5,16 +5,9 @@
 	export let key: string;
 </script>
 
-<div class="flex justify-start">
-	<button
-		type="submit"
-		name={key}
-		class="py-2 px-6 inline-flex bg-ninjaFormKit-default dark:bg-ninjaFormKit-defaultDark rounded text-ninjaFormKit-buttonText dark:text-ninjaFormKit-buttonTextDark items-center transiton-bg duration-75 hover:bg-primary-dark justify-center"
-		disabled={field.disabled}
-	>
-		{#if field.icon}
-			<Icon icon={field.icon} class="mr-2" />
-		{/if}
-		{field.label}
-	</button>
-</div>
+<button type="submit" name={key} class="nfk-fieldset__field-button" disabled={field.disabled}>
+	{#if field.icon}
+		<Icon icon={field.icon} class="nfk-fieldset__field-button-icon" />
+	{/if}
+	{field.label}
+</button>
