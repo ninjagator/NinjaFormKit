@@ -20,7 +20,7 @@
 	<label for={key} class="nfk-fieldset__field-checkbox__label">{field.label}</label>
 </div>
 {#if error}
-	<p id={`${key}-error`} class="nfk-fieldset__field-error">
+	<p aria-errormessage={error} id={`${key}-error`} class="nfk-fieldset__field-error">
 		{error}
 	</p>
 {/if}

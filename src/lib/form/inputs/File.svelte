@@ -35,7 +35,11 @@
 	{/if}
 </label>
 {#if error}
-	<p id={`${key}-error`} class="text-ninjaFormKit-error dark:text-ninjaFormKit-errorDark text-sm">
+	<p
+		aria-errormessage={error}
+		id={`${key}-error`}
+		class="text-ninjaFormKit-error dark:text-ninjaFormKit-errorDark text-sm"
+	>
 		{error}
 	</p>
 {/if}
